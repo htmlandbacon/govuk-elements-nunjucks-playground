@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Nunjucks playground - Radio
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Nunjucks playground - radio
+      </h1>
+
+
+        {% from 'gov-radios/macro.njk' import govRadios %}
+        {% from 'gov-error-summary/macro.njk' import govErrorSummary %}
+
+        {{ govErrorSummary('Heading', '', {test: 'test 1'}) }}
+
+        {{ govRadios('yes-or-no',
+                    'yes-or-no',
+                    'Please select an option',
+                    '',
+                    'yes',
+                    '',
+                    [{id: 'yes', value: 'yes', label: 'Yes'},
+                        {id: 'no', value: 'no', label: 'no'}]
+                    ) }}
+
+
+                {{ govRadios('yes-or-no',
+                    'yes-or-no',
+                    'Please select an option',
+                    'This is a hint',
+                    'yes',
+                    'this is an error',
+                    [{id: 'yes', value: 'yes', label: 'Yes'},
+                        {id: 'no', value: 'no', label: 'no'}]
+                    ) }}
+
+
+     
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
